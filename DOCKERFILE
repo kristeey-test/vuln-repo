@@ -1,0 +1,5 @@
+FROM debian:13
+
+RUN apt-get update && apt-get install -y \
+    deskflow=1.22.0+dfsg-7 \
+    && rm -rf /var/lib/apt/lists/*
