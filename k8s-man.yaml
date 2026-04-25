@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vulns-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vulns-test
+  template:
+    metadata:
+      labels:
+        app: vulns-test
+    spec:
+      containers:
+        - name: app
+          image: alpine:3.23
+          # ruby 3.4.8-r0 installed in alpine:3.23 is affected by ALPINE-CVE-2026-27820
